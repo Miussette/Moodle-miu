@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="380" viewBox="0 0 800 380" role="img" aria-labelledby="title desc">
+  <title id="title">Zona sacra con eritema: caso SIM-076</title>
+  <desc id="desc">Esquema posterior de la región lumbar y glútea. Un área roja sobre el sacro representa el enrojecimiento descrito en el caso, sin herida abierta.</desc>
+  <defs>
+    <radialGradient id="red"><stop stop-color="#ce5962" stop-opacity=".85"/><stop offset=".6" stop-color="#df7d80" stop-opacity=".65"/><stop offset="1" stop-color="#ecaba1" stop-opacity=".1"/></radialGradient>
+    <linearGradient id="skin" x2="1" y2="1"><stop stop-color="#f3d4bd"/><stop offset="1" stop-color="#ddb297"/></linearGradient>
+  </defs>
+  <rect width="800" height="380" rx="16" fill="#f1f5f9"/>
+  <text x="30" y="37" font-family="sans-serif" font-size="15" fill="#4d6277">SIM-076 · ILUSTRACIÓN DEL CASO</text>
+  <text x="30" y="66" font-family="sans-serif" font-size="23" font-weight="bold" fill="#123353">Región sacra</text>
+  <path d="M234 90 C244 129 240 161 214 204 C190 247 199 309 221 344 L421 344 C443 309 452 247 428 204 C402 161 398 129 408 90" fill="url(#skin)" stroke="#b78d76" stroke-width="2"/>
+  <path d="M321 102 L321 186 M321 253 C314 276 316 307 321 330" fill="none" stroke="#b78d76" stroke-width="2" stroke-linecap="round"/>
+  <path d="M235 242 Q266 228 292 248 M350 248 Q377 228 407 242" fill="none" stroke="#c79a80" stroke-width="2"/>
+  <ellipse cx="321" cy="216" rx="44" ry="38" fill="url(#red)"/>
+  <ellipse cx="321" cy="216" rx="50" ry="44" fill="none" stroke="#9a364b" stroke-dasharray="5 5" stroke-width="2"/>
+  <path d="M371 216 H490" fill="none" stroke="#9a364b" stroke-width="2"/>
+  <circle cx="371" cy="216" r="4" fill="#9a364b"/>
+  <g font-family="sans-serif">
+    <text x="510" y="204" font-size="22" font-weight="bold" fill="#123353">Eritema localizado</text>
+    <text x="510" y="236" font-size="18" fill="#40566d">Enrojecimiento de la piel</text>
+    <text x="510" y="264" font-size="18" fill="#40566d">Sin herida abierta descrita</text>
+    <text x="30" y="353" font-size="14" fill="#4d6277">Vista posterior · Esquema educativo ficticio</text>
+  </g>
+</svg>

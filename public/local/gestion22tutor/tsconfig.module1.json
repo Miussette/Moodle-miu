@@ -1,0 +1,5 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": { "outFile": "amd/build/module1.min.js" },
+  "include": ["ts/module1/**/*.ts"]
+}

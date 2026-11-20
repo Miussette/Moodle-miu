@@ -1,0 +1,100 @@
+name: moodle-local
+services:
+  db:
+    image: mariadb:11.4
+    environment:
+      MARIADB_DATABASE: moodle
+      MARIADB_USER: moodle
+      MARIADB_PASSWORD: ${MOODLE_DB_PASSWORD:?Define MOODLE_DB_PASSWORD in .env}
+      MARIADB_ROOT_PASSWORD: ${MOODLE_DB_ROOT_PASSWORD:?Define MOODLE_DB_ROOT_PASSWORD in .env}
+    command: ["--character-set-server=utf8mb4", "--collation-server=utf8mb4_unicode_ci"]
+    volumes:
+      - database:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+      interval: 10s
+      timeout: 5s
+      retries: 30
+  web:
+    image: moodle-local-web
+    build:
+      context: docker/local
+    ports:
+      - "127.0.0.1:8080:80"
+    environment:
+      MOODLE_DB_PASSWORD: ${MOODLE_DB_PASSWORD}
+      INTERNAL_API_TOKEN: ${INTERNAL_API_TOKEN:?Define INTERNAL_API_TOKEN in .env}
+      GESTION22_MODULE1_CONTENT_FILE: /var/www/gestion22-content/module1.json
+    volumes:
+      - source:/var/www/html
+      - ./public/local/gestion22tutor:/var/www/html/public/local/gestion22tutor:ro
+      - ./gestion22-ai-api/data/module1.json:/var/www/gestion22-content/module1.json:ro
+      - moodledata:/var/moodledata
+      - type: volume
+        source: dependencies
+        target: /var/www/html/vendor
+        volume:
+          nocopy: true
+    depends_on:
+      db:
+        condition: service_healthy
+  cron:
+    image: moodle-local-web
+    user: www-data
+    environment:
+      MOODLE_DB_PASSWORD: ${MOODLE_DB_PASSWORD}
+      INTERNAL_API_TOKEN: ${INTERNAL_API_TOKEN:?Define INTERNAL_API_TOKEN in .env}
+      GESTION22_MODULE1_CONTENT_FILE: /var/www/gestion22-content/module1.json
+    volumes:
+      - source:/var/www/html
+      - ./public/local/gestion22tutor:/var/www/html/public/local/gestion22tutor:ro
+      - ./gestion22-ai-api/data/module1.json:/var/www/gestion22-content/module1.json:ro
+      - moodledata:/var/moodledata
+      - type: volume
+        source: dependencies
+        target: /var/www/html/vendor
+        volume:
+          nocopy: true
+    entrypoint: ["/bin/sh", "-c"]
+    command: ["while true; do php admin/cli/cron.php; sleep 60; done"]
+    depends_on:
+      web:
+        condition: service_started
+        
+
+  gestion22-ai:
+    build:
+      context: ./gestion22-ai-api
+      dockerfile: Dockerfile
+    container_name: gestion22-ai
+    restart: unless-stopped
+    env_file:
+      - ./gestion22-ai-api/.env
+    environment:
+      NODE_ENV: production
+      PORT: "3001"
+      # Explicit local-only course association; no default binding in application code.
+      COURSE_CONTEXT_BINDINGS_FILE: /app/config/course-bindings.local.json
+      MODULE1_CONTENT_FILE: /app/data/module1-content.json
+    volumes:
+      - ./gestion22-ai-api/config/course-bindings.local.json:/app/config/course-bindings.local.json:ro
+      - ./gestion22-ai-api/data/module1.json:/app/data/module1-content.json:ro
+    ports:
+      - "127.0.0.1:3001:3001"
+    healthcheck:
+      test:
+        - CMD
+        - node
+        - -e
+        - "fetch('http://127.0.0.1:3001/health').then(r=>{if(!r.ok)process.exit(1)}).catch(()=>process.exit(1))"
+      interval: 15s
+      timeout: 5s
+      retries: 5
+      start_period: 20s
+
+
+volumes:
+  database:
+  moodledata:
+  dependencies:
+  source:

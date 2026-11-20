@@ -1,0 +1,12 @@
+{
+  "name": "local-gestion22tutor",
+  "private": true,
+  "scripts": {
+    "build": "tsc -p tsconfig.json && tsc -p tsconfig.module1.json",
+    "typecheck": "tsc --noEmit && tsc -p tsconfig.module1.json --noEmit",
+    "watch": "tsc -p tsconfig.json --watch",
+    "watch:module1": "tsc -p tsconfig.module1.json --watch",
+    "test": "node --test tests/*.test.cjs"
+  },
+  "devDependencies": { "typescript": "5.9.3" }
+}

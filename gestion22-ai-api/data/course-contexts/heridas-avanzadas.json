@@ -1,0 +1,54 @@
+{
+  "schemaVersion": 1,
+  "id": "gestion22-heridas-avanzadas",
+  "revision": "2026-11-10",
+  "provenance": "Información oficial proporcionada por Gestión22 para la introducción del curso; no se han leído los recursos enlazados.",
+  "title": "Manejo Avanzado de Heridas de Difícil Cicatrización: Actualización Basada en Evidencia",
+  "welcome": "Estimado(a) participante:\n\nLe damos la más cordial bienvenida al curso \"Manejo Avanzado de Heridas de Difícil Cicatrización: Actualización Basada en Evidencia\".\n\nEsperamos que esta experiencia formativa fortalezca sus competencias para brindar una atención segura, actualizada y basada en la mejor evidencia científica.",
+  "productionOrigin": "https://aulavirtual.gestion22.cl",
+  "beforeStarting": [
+    {
+      "id": "ficha-tecnica",
+      "title": "Ficha Técnica",
+      "description": "Objetivos, contenidos, metodología y sistema de evaluación.",
+      "url": "https://aulavirtual.gestion22.cl/mod/resource/view.php?id=24040"
+    },
+    {
+      "id": "presentacion-docente",
+      "title": "Video de presentación de la docente",
+      "description": "Presentación de la profesional responsable del curso.",
+      "url": "https://vimeo.com/1216289858?fl=pl&fe=cm"
+    },
+    {
+      "id": "consultas-docente",
+      "title": "Foro Consultas al Docente",
+      "description": "Espacio para preguntas académicas.",
+      "url": "https://aulavirtual.gestion22.cl/mod/forum/view.php?id=24043"
+    }
+  ],
+  "assessment": {
+    "finalExam": {
+      "title": "Examen Final",
+      "weightPercent": 100,
+      "url": "https://aulavirtual.gestion22.cl/mod/quiz/view.php?id=24167"
+    },
+    "diagnosticAndFormative": "Actividades de apoyo al aprendizaje que no inciden en la nota final."
+  },
+  "support": {
+    "scope": "Consultas técnicas o administrativas",
+    "email": "aulavirtual@gestion22.cl",
+    "requiredDetails": [
+      "Nombre completo",
+      "Código del curso"
+    ]
+  },
+  "notProvided": [
+    "Nombre, correo personal y horarios de la docente",
+    "Enlace del video de presentación",
+    "Código oficial del curso",
+    "Fechas y duración del curso",
+    "Temario detallado y contenidos de los recursos enlazados",
+    "Nota mínima de aprobación, intentos, fecha y duración del examen"
+  ],
+  "documents": []
+}

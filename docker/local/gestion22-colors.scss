@@ -1,0 +1,22 @@
+﻿/* Gestion22 reference palette: green, white and neutral grey. */
+body, #page, #page-content { background-color: #fff; }
+.navbar.fixed-top { background-color: #0bb523 !important; border-bottom-color: #0bb523; }
+.navbar.fixed-top .navbar-brand,
+.navbar.fixed-top .nav-link,
+.navbar.fixed-top .usermenu > .dropdown > a,
+.navbar.fixed-top .popover-region-toggle,
+.navbar.fixed-top .editmode-switch-form { color: #fff !important; }
+.navbar.fixed-top .nav-link:hover,
+.navbar.fixed-top .nav-link.active { background-color: #008d26; color: #fff !important; }
+.drawer, .drawercontent { background-color: #f7f8f9; }
+#page-header h1, #page-header h2 { color: #8b9393; }
+.secondary-navigation .navigation { background-color: #fff; }
+.secondary-navigation .nav-tabs { gap: 1px; border-bottom: 0; }
+.secondary-navigation .nav-tabs .nav-link { background: #dce0df; color: #00652e; border: 0; border-radius: 4px; }
+.secondary-navigation .nav-tabs .nav-link.active,
+.secondary-navigation .nav-tabs .nav-link:hover { background: #0bb523; color: #fff; }
+.btn-primary { background-color: #0bb523; border-color: #0bb523; color: #fff; }
+.btn-primary:hover, .btn-primary:active { background-color: #008d26; border-color: #008d26; color: #fff; }
+.btn-secondary { background-color: #dce0df; border-color: #dce0df; color: #4f565d; }
+.courseindex .courseindex-item.pageitem { background-color: #0bb523; }
+.courseindex .courseindex-item.pageitem .courseindex-link { color: #fff; }

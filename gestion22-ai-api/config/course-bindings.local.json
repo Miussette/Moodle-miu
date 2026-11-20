@@ -1,0 +1,8 @@
+{
+  "schemaVersion": 1,
+  "moodleOrigin": "http://localhost:8080",
+  "description": "Asociación explícita para pruebas locales autorizada para esta implementación. No identifica el ID del curso en producción.",
+  "courses": {
+    "2": "gestion22-heridas-avanzadas"
+  }
+}
